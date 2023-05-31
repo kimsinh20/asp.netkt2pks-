@@ -1,0 +1,39 @@
+﻿@model IEnumerable<kt2_lan2.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-6 col-md-4 col-lg-3 text-center">
+                    @Html.DisplayFor(modelItem => item.Pid)<br/>
+               
+                    @Html.DisplayFor(modelItem => item.ProdName)<br />
+              
+                    @Html.DisplayFor(modelItem => item.Description)<br />
+              
+                    @{
+                        var imagePath = "~/Content/Images/" + item.ImagePath;
+                        <img alt="no img" src="@Url.Content(imagePath)" width="150" /><br />
+                    }
+         
+               
+                    @Html.DisplayFor(modelItem => item.Price)<br />
+             
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Pid }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Pid }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Pid })
+            </div>
+        }
+
+    </div>
+</div>

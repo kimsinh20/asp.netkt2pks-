@@ -1,0 +1,15 @@
+﻿@model IEnumerable<kt2_lan2.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+    @foreach (var item in Model)
+    {
+       <li class="text-info">
+           <a href="/shop/danhmuc/@item.Categoryid">
+                @Html.DisplayFor(modelItem => item.CategoryName)
+           </a>
+       </li>
+    }
+
